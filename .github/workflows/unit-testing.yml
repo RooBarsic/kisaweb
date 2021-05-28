@@ -13,11 +13,11 @@ jobs:
       - name: python3 -V
         run: python3 -V
     
-      - name: remove python 3.7
-        run: sudo apt-get remove -y python
+#       - name: remove python 3.7
+#         run: sudo apt-get remove -y python
 
-      - name: remove python 3.7
-        run: sudo apt-get remove -y python3-pip
+#       - name: remove python 3.7
+#         run: sudo apt-get remove -y python3-pip
 
       - name: udate and upgrade
         run: sudo apt-get update && sudo apt-get upgrade
