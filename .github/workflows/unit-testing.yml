@@ -10,18 +10,18 @@ jobs:
     runs-on: [ubuntu-18.04]
 
     steps:
-      - name: udate
-        run: sudo apt-get update
-      - name: upgrade
-        run: sudo apt-get -y upgrade
-      - name: python3 -V
-        run: python3 -V
+#       - name: udate
+#         run: sudo apt-get update
+#       - name: upgrade
+#         run: sudo apt-get -y upgrade
+#       - name: python3 -V
+#         run: python3 -V
     
       - name: Clone repository
         uses: actions/checkout@v1
 
       - name: install pip
-        run: sudo apt install python-pip
+        run: sudo apt install python3-pip
 
       - name: Installing maven
         run: pip install -r requirements.txt
