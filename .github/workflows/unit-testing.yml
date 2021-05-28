@@ -10,14 +10,12 @@ jobs:
     runs-on: [ubuntu-18.04]
 
     steps:
-      - name: sudo apt update
-        uses: sudo apt update
-
-      - name: sudo apt -y upgrade
-        uses: sudo apt -y upgrade
-
+      - name: udate
+        run: sudo apt-get update
+      - name: upgrade
+        run: sudo apt-get -y upgrade
       - name: python3 -V
-        uses: python3 -V
+        run: python3 -V
     
       - name: Clone repository
         uses: actions/checkout@v1
