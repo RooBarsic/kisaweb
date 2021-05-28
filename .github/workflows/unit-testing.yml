@@ -10,8 +10,13 @@ jobs:
     runs-on: [ubuntu-18.04]
 
     steps:
-      - name: udate and upgrade
-        run: sudo apt-get update && sudo apt-get upgrade
+      - name: python3 -V
+        run: python3 -V
+#       - name: udate and upgrade
+#         run: sudo apt-get update && sudo apt-get upgrade
+      - name: install python 3.7
+        run: sudo apt-get remove python
+
       - name: install python 3.7
         run: sudo apt-get install python3.7
       - name: python3 -V
