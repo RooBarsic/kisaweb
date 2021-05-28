@@ -1,0 +1,44 @@
+name: kisaweb
+env:
+  APPLICATION_NAME : "kisaweb"
+
+on: [push]
+
+jobs:
+  run-tests:
+
+    runs-on: [ubuntu-18.04]
+
+    steps:
+      - name: sudo apt update
+        uses: sudo apt update
+
+      - name: sudo apt -y upgrade
+        uses: sudo apt -y upgrade
+
+      - name: python3 -V
+        uses: python3 -V
+    
+      - name: Clone repository
+        uses: actions/checkout@v1
+
+      - name: install pip
+        run: sudo apt install python-pip
+
+      - name: Installing maven
+        run: pip install -r requirements.txt
+
+      - name: Maven version
+        run: pre-commit install
+
+      - name: Maven version
+        run: pre-commit autoupdate
+
+      - name: Maven version
+        run: git config core.hookspath .githooks
+
+      - name: Maven version
+        run: |
+          cd web
+          python3 manage.py migrate
+
