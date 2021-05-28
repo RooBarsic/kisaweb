@@ -10,12 +10,12 @@ jobs:
     runs-on: [ubuntu-18.04]
 
     steps:
-#       - name: udate
-#         run: sudo apt-get update
-#       - name: upgrade
-#         run: sudo apt-get -y upgrade
-#       - name: python3 -V
-#         run: python3 -V
+      - name: udate and upgrade
+        run: sudo apt-get update && sudo apt-get upgrade
+      - name: install python 3.7
+        run: sudo apt-get install python3.7
+      - name: python3 -V
+        run: python3 -V
     
       - name: Clone repository
         uses: actions/checkout@v1
@@ -23,19 +23,19 @@ jobs:
       - name: install pip
         run: sudo apt install python3-pip
 
-      - name: Installing maven
+      - name: Installing requriments
         run: pip install -r requirements.txt
 
-      - name: Maven version
+      - name: pre-commit install
         run: pre-commit install
 
-      - name: Maven version
+      - name: pre-commit autoupdate
         run: pre-commit autoupdate
 
-      - name: Maven version
+      - name: git config core.hookspath .githooks
         run: git config core.hookspath .githooks
 
-      - name: Maven version
+      - name: Run
         run: |
           cd web
           python3 manage.py migrate
